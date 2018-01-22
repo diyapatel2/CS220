@@ -1,0 +1,49 @@
+Secret 1: 0xdeadbeef  || -559038737      address: 0x555555755040
+Secret 2: 0xdeadc0de  || 93824994333172  address: 0x5555557551f4
+Secret 3: 0xbadc0de5  || 93824994332120  address: 0x555555754dd8
+Secret 4: 0xbadbeef5  || 93824994332128  address: 0x555555754de0
+
+
+Stack: start address: 0x7ffffffde000
+	end address: 0x7ffffffff000
+
+Heap: start address: 0x5555555546c6 
+      end address: 0x555555777000
+
+Data: start address: 0x00007ffff7dd3080  
+      end address: 0x00007ffff7dd47001
+or its this...
+Data: start address: 0x0000555555755020 
+	end address: 0x00005555557551f0
+4.1:
+Global variable: 
+Binary Size @ x= 10; Size of the binary: 11104
+Binary Size @ x = 100; Size of the binary: 11216
+Binary Size @ x = 1000; Size of the binary: 12120
+Binary Size @ x = 10000; Size of the binary: 21128
+
+
+4.2:
+Malloc Variable: 
+Binary Size @ x =10; Size of the binary: 11048
+Binary Size @ x =100; Size of the binary: 11048
+Binary Size @ x =1000; Size of the binary: 11048
+Binary Size @ x =10000; Size of the binary: 11048
+
+4.3: Dynamic Memory
+//malloc_limits.c
+long long i = 0;
+
+while(malloc(4096) != NULL){
+
+ 	i++;
+}
+printf("%lld/n", i);
+return 0; 
+ - Executing this code crashed my program. Malloc returns a pointer. I figured out, that the malloc is used to allocate the memory if its not null. If malloc is not null then the i would increment, but when it is null, that i number would get printed out.  The total memory for the program is i(any int) * 4096 for the total program. 
+
+4.4:Limits of the Stack
+Binary Size @ x =10; 0x21000
+Binary Size @ x =100; 0x21000
+Binary Size @ x =1000; 0x21000
+Binary Size @ x =10000; 0x21000
