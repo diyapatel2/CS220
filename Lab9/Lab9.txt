@@ -1,0 +1,34 @@
+1. Record the disk access times for STEP_SIZE values: 
+	4: HDD ACCESS:  5 sec, 175677 micro sec
+	32: HDD ACCESS:  1 sec, 104614 micro sec
+	128: HDD ACCESS:  0 sec, 165878 micro sec
+	1024: HDD ACCESS: 0 sec, 024712 micro sec
+
+PAGESIZE = 4096
+
+2. NG VALUES: 
+	1:
+	 MEM SERIAL ACCESS:  0 sec, 004949 micro sec
+	MEM PAGE STEP ACCESS:  0 sec, 015355 micro sec
+
+	4:
+        MEM SERIAL ACCESS:  0 sec, 019939 micro sec
+	MEM PAGE STEP ACCESS:  0 sec, 049783 micro sec
+
+	32:
+	MEM SERIAL ACCESS:  0 sec, 119449 micro sec
+	MEM PAGE STEP ACCESS:  0 sec, 517495 micro sec
+
+	128:
+	MEM SERIAL ACCESS:  0 sec, 354664 micro sec
+	MEM PAGE STEP ACCESS:  2 sec, 119279 micro sec
+
+
+
+what does perf do? 
+- perf analyzes performance and data in the hardware and software. Perf gives hardware counters for all its performances. example: perf stat ls will tell you the number of instructions the cpu goes through inorder to run ls
+
+
+
+
+
