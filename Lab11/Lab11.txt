@@ -1,0 +1,64 @@
+1. The order is inconsistent because in some cases the parent finished before the child finishes the execution and in other times, the child finishes the execution before the parent finishes its execution. Unless there is a delay time like sleep(), there is no certianity in the ordering of the execution. 
+
+2. When the 1 second sleep delay is added to the parent case, the child is executed before the parent. 
+
+3. 
+In child
+child pid: 30085
+parent pid: 30084
+
+4. 
+In parent
+Child pid: 30084
+Parent pid: 299413
+
+5.In child: x = 2;
+  In parent: x = 0; 
+
+ The last value is 0 not 1 because the child and parent cases act independently. In parent x= 1, but then x--; is called so the value goes down to 0, and in child x=1 but then x++ is called so x goes up to 2. 
+
+
+multifork.c:
+
+1. 
+
+Line 1
+Line 2
+Line 4
+Line 3
+remote06:~/cs220/Lab11> Line 1
+Line 2
+Line 4
+Line 2
+Line 4
+Line 2
+Line 3
+Line 4
+Line 3
+Line 3
+
+2. 
+30301: 29941: Line 1
+30302: 30301: Line 1
+30303: 30301: Line 2
+30303: 30301: Line 4
+30301: 29941: Line 2
+30304: 1: Line 3
+30302: 30301: Line 2
+30301: 29941: Line 4
+30305: 30302: Line 2
+remote06:~/cs220/Lab11> 30305: 30302: Line 4
+30307: 30305: Line 3
+30302: 1: Line 4
+30308: 30302: Line 3
+30306: 1: Line 3
+
+The parent pid is 1 for some processes because by that time the original parent's process has completed execution and so its child is now a orphaned process, so when they next process is executed the pid is still 1. 
+
+exec.c:
+
+1. Child pid = 23415, parent pid = 23414
+My pid is 23415, parent pid is 23414.
+
+
+
