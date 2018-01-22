@@ -1,0 +1,27 @@
+
+2.
+The size of the structs change because of padding or the order of the members of each struct and how they push onto the stack. The first member of bs is short, which is 2 bytes, that means you have to pad 2 extra bytes to the stack in order to align it to 4 byte values. It continues to do add the extra padding when needed. Overall, reordering the members helps with memory, depending on the system you are working with. 
+Size of bad = 24
+Size of good = 16
+Address of bad is 0x7ffd096cc570
+Address of good is 0x7ffd096cc560
+
+3.
+size of union = 8
+Address of union = 0x7ffd36b189a8
+Address of int i in union = 0x7ffd36b189a8
+Address of long i in union = 0x7ffd36b189a8
+
+
+Overlay- everything is stored in the same address, and the word overlay is 8 bytes, its 8 bytes of memory, c is not aware of types. 
+
+4.
+O, 34165590585603663, 1919252047, Overlay
+printf is interpreting the union: the types really don't matter for the union. You can put a long value and store it as a string. Union sizes is the size of the largest variable. You have to keep track of the types. 
+
+
+5.
+size of array 40
+printing foo size of array 8
+
+when passed into the function it became an 8 bit pointer. When you pass an array to a function it becomes a reference to the array. you have a reference to the array, not the actual array.
