@@ -1,0 +1,82 @@
+4.The output before commenting printlists
+632 -> 287 -> 600 -> 817 -> 215 -> 679 -> 427 -> 519 -> 103 -> 932 -> 793 -> 927 -> 287 -> 794 -> 552 -> 348 -> 377 -> 110 -> 894 ->  NULL
+****REV****
+894 -> 110 -> 377 -> 348 -> 552 -> 794 -> 287 -> 927 -> 793 -> 932 -> 103 -> 519 -> 427 -> 679 -> 215 -> 817 -> 600 -> 287 -> 632 -> 313 ->  NULL
+5.
+  Before changing numNodes:
+  SM:  0 sec, 000001 micro sec
+   C:  0 sec, 000000 micro sec
+
+
+---------------------------
+  NUM_NODES = 10;
+	SM:  0 sec, 000000 micro sec
+	C:  0 sec, 000000 micro sec
+
+
+  NUM_NODES = 100;
+	ASM:  0 sec, 000001 micro sec
+	C:  0 sec, 000001 micro sec
+  NUM_NODES = 1000;
+	ASM:  0 sec, 000004 micro sec
+	C:  0 sec, 000010 micro sec
+
+  NUM_NODES = 10000;
+	ASM:  0 sec, 000040 micro sec
+	C:  0 sec, 000097 micro sec
+
+  NUM_NODES = 100000;
+	ASM:  0 sec, 000383 micro sec
+	C:  0 sec, 000904 micro sec
+
+  NUM_NODES = 1000000;
+
+	ASM:  0 sec, 003203 micro sec
+	C:  0 sec, 006898 micro sec
+
+reverse_c has more instructions than reverse_asm; more instructions the slower they access storage, 
+fewer instructions indicates that it will have a faster execution time.
+
+
+--------------------Effect of optimization-------------------------------
+NUM_NODES = 10;
+	ASM:  0 sec, 003226 micro sec
+	C:  0 sec, 006936 micro sec
+
+NUM_NODES = 100;
+	ASM:  0 sec, 003240 micro sec
+	C:  0 sec, 006846 micro sec
+
+NUM_NODES = 1000;
+	ASM:  0 sec, 003229 micro sec
+	C:  0 sec, 006953 micro sec
+
+NUM_NOES = 10000;
+	ASM:  0 sec, 003139 micro sec
+	C:  0 sec, 006580 micro sec
+
+NUM_NODES = 100000;
+	ASM:  0 sec, 003109 micro sec
+	C:  0 sec, 006569 micro sec
+
+NUM_NODES = 1000000;
+	ASM:  0 sec, 003111 micro sec
+	C:  0 sec, 006686 micro sec
+
+
+reverse_asm can be made faster by:
+1. change mov eax, 0x0 ->  xor eax, eax
+2. change cmp eax, 0 -> cmp eax, *another register
+3. change cmp ebx, 0x0 -> cmp eax, *another register
+	*another register = put the value of 0 into a register and compare that register with eax, because it will be faster when you compare a register with a register
+
+with -o2:
+Number of instructions for reverse.c -> 35
+Number of instructions for reverse.asm -> 10
+
+without -o2:
+number of instructions for reverse.c -> 35
+number of instructions for reverse.asm -> 10
+
+
+
