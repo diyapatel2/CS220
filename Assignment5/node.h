@@ -1,0 +1,16 @@
+#ifndef _NODE_H
+#define _NODE_H
+
+struct _Node {
+	union {
+		int n;
+		char c;
+	} val;
+	void *ptr;
+	int var;
+};
+typedef struct _Node Node;
+
+Node *my_reverse(Node *head);
+Node *find_head(void *ptr);
+#endif
