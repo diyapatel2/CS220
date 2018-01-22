@@ -1,0 +1,23 @@
+
+
+
+
+For Loop:
+Elapsed: 494787088.168090
+ Average Iterations 2.021071 seconds
+12 Instructions
+
+
+While Loop:
+Elapsed: 45335587.620241
+ Average Iterations 2.205773 seconds
+10 Instructions
+
+
+
+Do While Loop:
+Elapsed: 454448161.325462
+ Average Iterations 2.021071 seconds
+9 Instructions
+
+The For loop and Do While run faster than the While Loop. 
